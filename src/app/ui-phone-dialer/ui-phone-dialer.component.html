@@ -1,0 +1,40 @@
+<div class="[ dialer ]" [class.dialer--flex]=call_active>
+	<!-- TOP SECTION -->
+	<div class="[ dialer__screen ]">
+		<span class="[ dialer__screen__time ]">{{ formatted_time }}</span>
+		<span class="[ dialer__screen__number ]">{{ number_to_dial }}</span>
+	</div>
+	<!-- /TOP SECTION -->
+
+	<!-- DIALER -->
+	<div class="[ dialer__keypad ]" [hidden]=call_active>
+		<div
+			*ngFor="let number of numbers"
+			class="[ dialer__keypad__number ]"
+			(click)="onClickNumber(number)">
+			<span>{{ number }}</span>
+		</div>
+	</div>
+	<!-- /DIALER -->
+
+	<!-- BOTTOM SECTION -->
+	<div class="[ dialer__actions ]" [class.dialer__bottom--full-height]=call_active>
+
+		<!-- DIAL BUTTON -->
+		<button
+			#start_call
+			[hidden]=call_active
+			class="[ dialer__actions__button dialer__actions__button--call ]">
+			Dial
+		</button>
+
+		<!-- HANGUP BUTTON  -->
+		<button
+			#end_call
+			[hidden]=!call_active
+			class="[ dialer__actions__button dialer__actions__button--hang__up ]">
+			Hangup
+		</button>
+	</div>
+	<!-- /BOTTOM SECTION -->
+</div>

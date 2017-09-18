@@ -1,0 +1,88 @@
+@import "../../assets/variables";
+@import "../../assets/mixins/rem";
+
+.dialer {
+  height: 500px;
+  max-width: 300px;
+  min-width: 299px;
+
+	&--flex {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__screen {
+		@include rem(padding, 40px);
+		align-items: center;
+		background: $dark-blue;
+		color: $white;
+		display: flex;
+		flex-direction: column;
+		height: 150px;
+		justify-content: center;
+
+		&__time {
+			@include rem(font-size, 14px);
+			color: $light-grey;
+		}
+		&__number {
+      @include rem(font-size, 24px);
+    }
+	}
+
+	&__keypad {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 300px;
+    justify-content: space-around;
+
+    &__number {
+      @include rem(font-size, 18px);
+      align-items: center;
+      background: $medium-blue;
+      border-bottom: 1px solid $light-grey;
+      border-left: 1px solid $light-grey;
+      color: $light-grey;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: 33.3333%;
+
+      &:active {
+        background: $dark-blue;
+      }
+    }
+	}
+
+	&__actions {
+		@include rem(padding, 20px);
+		align-items: center;
+		background: $light-blue;
+		display: flex;
+		height: 15vh;
+		justify-content: center;
+
+		&--full-height {
+			align-items: flex-start;
+			height: 80vh;
+		}
+
+    &__button {
+			@include rem(height, 35px);
+			@include rem(width, 122px);
+			@include rem(border-radius, 3px);
+    	border: none;
+			color: $white;
+
+			&--hang__up {
+        background: $red;
+      }
+			&--call {
+        background: $green;
+      }
+    }
+	}
+}
