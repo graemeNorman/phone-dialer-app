@@ -1,29 +1,26 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subscription } from "rxjs/Rx";
+import { Observable, Subscription } from 'rxjs/Rx';
 import { CallLogService } from '../services/numbers-store.service';
 import { CallTimerService } from '../services/timer.service';
-
-import { IPhoneNumber } from '../interfaces/phone-number.interface';
-
 
 @Component({
   selector: 'ui-phone-dialer',
   templateUrl: './ui-phone-dialer.component.html',
   styleUrls: ['./ui-phone-dialer.component.scss']
 })
+
 export class PhoneDialerComponent implements OnInit {
 
-  @ViewChild('start_call') start_call$;
-  @ViewChild('end_call') end_call$;
-
   private MAX_CALL_TIME = 10;
-
   numbers: Array<string> = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#'];
   number_to_dial: string = '';
   call_active: boolean;
   formatted_time: string = '';
   seconds: number = 0;
   timer_sub: Subscription;
+
+  @ViewChild('start_call') start_call$;
+  @ViewChild('end_call') end_call$;
 
   constructor(private numbersStore: CallLogService, private timerService: CallTimerService) { }
 

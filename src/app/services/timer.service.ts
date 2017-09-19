@@ -1,7 +1,9 @@
+// Core
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
+
 export class CallTimerService {
 
   constructor() { }
@@ -28,8 +30,7 @@ export class CallTimerService {
   }
 
   private pad(digit: any) {
-      return digit <= 9 ? '0' + digit : digit;
+    return digit <= 9 ? '0' + digit : digit;
   }
-
 
 }

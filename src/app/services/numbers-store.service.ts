@@ -30,17 +30,13 @@ export class CallLogService {
     return _.take(this.calls, number_of_calls);
   }
 
-  getAllCalls() {
-    return this.calls;
-  }
-
   private doesCallRecordExist(number: string) {
     return _.find(this.calls,{number: number});
   }
 
   private update(number_to_update: IPhoneNumber, seconds: number) {
-      number_to_update.count++;
-      number_to_update.total_seconds += seconds;
+    number_to_update.count++;
+    number_to_update.total_seconds += seconds;
   }
 
   private add(number_to_add: string, seconds: number) {

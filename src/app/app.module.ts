@@ -18,4 +18,5 @@ import { CallTimerService } from './services/timer.service';
   providers: [CallLogService, CallTimerService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
